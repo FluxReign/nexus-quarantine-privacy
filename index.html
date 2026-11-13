@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Nexus Quarantine</title>
+  <style>
+    :root { --void:#0B0D10; --ink:#E8EEF0; --muted:#C5CDD2; --cyan:#3AD0DC; --line:#2A313A; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--void); color:var(--ink); font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif; }
+    main { max-width:720px; margin:0 auto; padding:48px 20px 80px; }
+    h1 { font-size:2rem; letter-spacing:0; margin:0 0 8px; color:var(--ink); }
+    h2 { font-size:1.15rem; margin:2rem 0 0.6rem; color:var(--cyan); }
+    .sub { color:var(--muted); margin:0 0 2rem; }
+    a { color:var(--cyan); }
+    hr { border:0; border-top:1px solid var(--line); margin:2rem 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Nexus Quarantine Privacy Policy</h1>
+    <p class="sub">Effective date: November 13, 2026 (updated for versions 0.5.0 and 0.6.0)</p>
+    <p>
+      Nexus Quarantine is a local-first personal privacy and security hygiene
+      companion. This policy applies to the Android app and to a possible iOS
+      version. It explains what the app does with information on your device.
+      Some features described below, such as the installed-app audit and the
+      local firewall, exist only on Android.
+    </p>
+    <p>
+      Developer: Mackenzie Swim, Ottawa, Ontario, Canada.<br />
+      Contact: <a href="mailto:thewhiskeywizard99@gmail.com">thewhiskeywizard99@gmail.com</a>
+    </p>
+
+    <h2>1. Data stays on your device, with one narrow exception</h2>
+    <p>
+      Almost all information the app uses stays on the phone or tablet where
+      you installed it. There is no Nexus Quarantine developer server, cloud
+      account, or backend that receives your entries, app list, or pasted messages.
+    </p>
+    <p>If you choose to use the app, it can store on the device:</p>
+    <ul>
+      <li>A passphrase you create (used locally to encrypt data stored by the app; it is not sent to the developer)</li>
+      <li>Hygiene checklist ticks, in-app lock settings, and an optional daily reminder preference</li>
+      <li>Optional identifiers you type (for example names or emails you already use) to build self-search queries, opt-out letters, and a PIPEDA access-request letter on the device</li>
+      <li>Optional trusted-contact name and check-in timer notes you type (nothing is sent automatically)</li>
+      <li>Optional sleep, mood, and social notes you type yourself</li>
+      <li>Text you paste into the secret scanner or the Canadian scam checker (processed on the device; you can clear it)</li>
+      <li>Snapshots of permissions for apps you can open, so the app can show you what changed over time</li>
+      <li>Local firewall preferences (from 0.6.0): whether the local DNS/app firewall is on, per-app block toggles, and an on-device count of blocked requests</li>
+    </ul>
+    <p>
+      On-device data is encrypted with your passphrase (AES-GCM), except for a
+      few operational items that have to live in ordinary app storage so the
+      Android service can read them (for example firewall on/off). If you forget
+      the passphrase, the encrypted store cannot be recovered.
+    </p>
+
+    <h2>2. Installed apps, permissions, and trackers</h2>
+    <p>
+      When you start an app audit or tracker report, the Android app reads the
+      list of <em>launchable</em> apps, their install source, and their
+      permissions, using Android’s PackageManager and a narrow launcher query
+      (not the QUERY_ALL_PACKAGES permission). Tracker matching compares the
+      installed APK with a bundled snapshot of the public Exodus Privacy
+      tracker list. That inventory and the scan results stay on your device.
+      They are not uploaded to the developer or to Exodus.
+    </p>
+
+    <h2>3. Pwned Passwords (the only routine third-party request)</h2>
+    <p>
+      If you use the Pwned Passwords check, the app hashes the password you
+      type with SHA-1 on the device, then sends <strong>only the first five
+      characters</strong> of that hash to Have I Been Pwned’s public range API
+      at <code>https://api.pwnedpasswords.com</code>. The password itself, and
+      the rest of the hash, never leave the device. The field is cleared after
+      the check. Have I Been Pwned is an independent service (Troy Hunt) with
+      its own privacy policy. The developer does not receive the prefix or the
+      password.
+    </p>
+
+    <h2>4. Local firewall (version 0.6.0 and later)</h2>
+    <p>
+      If you turn on the optional local firewall, the app uses Android’s
+      VpnService to filter DNS and, if you choose, to block internet access for
+      selected apps. This is a local tunnel only. There is no Nexus Quarantine
+      VPN server and no remote hop. DNS lookups for allowed names are resolved
+      using the DNS servers of your current network, through a protected
+      socket. Blocked names are answered on the device. Request counts stay on
+      the device. You can turn the firewall off at any time in the app.
+    </p>
+
+    <h2>5. What we do not do</h2>
+    <ul>
+      <li>We do not run ads or analytics in the app</li>
+      <li>We do not sell, rent, or share your information with third parties (the HIBP prefix is sent only at your request, as described above)</li>
+      <li>We do not collect information on a developer server</li>
+      <li>This version of the app does not include an encrypted health or notes vault, and it does not import data from Health Connect, HealthKit, Google Fit, or similar platforms</li>
+      <li>The app does not scan other people’s accounts or your local network for devices you do not own</li>
+      <li>A “Plus” plan may be described as coming soon; this version does not bill you or collect payment details</li>
+      <li>Links to the official WireGuard app are only links. This app does not import or store your WireGuard private keys</li>
+    </ul>
+
+    <h2>6. Internet access</h2>
+    <p>
+      The app requests the standard Android INTERNET permission. Besides the
+      Pwned Passwords check, it is used when you tap an external link you
+      choose to open (for example official privacy opt-out forms, Play Protect
+      settings, a search, or Canadian Anti-Fraud Centre pages). Those sites
+      have their own privacy policies.
+    </p>
+    <p>
+      Android cloud backup for this app is turned off (<code>allowBackup</code> is false),
+      so app data is not included in automatic device backups to Google.
+    </p>
+
+    <h2>7. How to delete your data</h2>
+    <p>You can remove everything the app stored on the device by:</p>
+    <ul>
+      <li>Using the in-app “wipe local data” control, and/or</li>
+      <li>Clearing the app’s storage in Android Settings, and/or</li>
+      <li>Uninstalling the app</li>
+    </ul>
+    <p>
+      Because we do not keep a copy on a server, there is no additional copy for
+      us to delete after you wipe or uninstall. Have I Been Pwned may retain
+      range-query logs under its own policy; we cannot delete those on your
+      behalf, and they do not include your password.
+    </p>
+
+    <h2>8. Children</h2>
+    <p>
+      Nexus Quarantine is not directed at children under 13 (or under 16 where
+      that is the applicable age). We do not knowingly collect personal information
+      from children.
+    </p>
+
+    <h2>9. Changes</h2>
+    <p>
+      If this policy changes, the updated text will be posted at this page with a
+      new effective date.
+    </p>
+
+    <h2>10. Contact</h2>
+    <p>
+      Questions about this policy: Mackenzie Swim,
+      <a href="mailto:thewhiskeywizard99@gmail.com">thewhiskeywizard99@gmail.com</a>,
+      Ottawa, Ontario, Canada.
+    </p>
+    <hr />
+    <p class="sub">This is not legal advice. It describes how this app is built to work.</p>
+  </main>
+</body>
+</html>
